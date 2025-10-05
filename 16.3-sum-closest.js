@@ -11,26 +11,26 @@
  * @return {number}
  */
 var threeSumClosest = function (nums, target) {
-    nums.sort((a, b) => a - b);
-    console.log(nums)
-    let nearest = Infinity;
-    let maxSum = -10000;
-    for (let i = 0; i < nums.length - 2; i++) {
-        let left = i + 1, right = nums.length - 1;
-        while (left < right) {
-            let sum = nums[i] + nums[left] + nums[right]
-            distance = Math.abs(sum - target);
+  nums.sort((a, b) => a - b);
+  console.log(nums)
+  let nearest = Infinity;
+  let maxSum = -10000;
+  for (let i = 0; i < nums.length - 2; i++) {
+    let left = i + 1, right = nums.length - 1;
+    while (left < right) {
+      let sum = nums[i] + nums[left] + nums[right]
+      distance = Math.abs(sum - target);
 
-            if (distance < nearest) {
-                nearest = distance;
-                maxSum = sum;
-            }
-            if (sum < target) left++;
-            else if (sum > target) right--;
-            else return sum;
-        }
+      if (distance < nearest) {
+        nearest = distance;
+        maxSum = sum;
+      }
+      if (sum < target) left++;
+      else if (sum > target) right--;
+      else return sum;
     }
-    return maxSum;
+  }
+  return maxSum;
 };
 // @lc code=end
 
